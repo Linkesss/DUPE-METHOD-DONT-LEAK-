@@ -1,0 +1,69 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Frame.Name = "Frame"
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.Position = UDim2.new(0.368221939, 0, 0.278330028, 0)
+Frame.Size = UDim2.new(0, 185, 0, 255)
+Frame.Image = "rbxassetid://3570695787"
+Frame.ImageColor3 = Color3.fromRGB(170, 0, 0)
+Frame.ScaleType = Enum.ScaleType.Slice
+Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+Frame.SliceScale = 0.120
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TextLabel.BorderColor3 = Color3.fromRGB(170, 0, 0)
+TextLabel.Position = UDim2.new(0.0378378369, 0, 0.0274509806, 0)
+TextLabel.Size = UDim2.new(0, 170, 0, 64)
+TextLabel.Font = Enum.Font.SpecialElite
+TextLabel.Text = "DUPE GEMS/ Shammess#4556"
+TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+TextButton.BorderColor3 = Color3.fromRGB(170, 0, 0)
+TextButton.Position = UDim2.new(0.0216216221, 0, 0.243137255, 0)
+TextButton.Size = UDim2.new(0, 177, 0, 186)
+TextButton.Font = Enum.Font.SpecialElite
+TextButton.Text = "Start"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 44.000
+TextButton.MouseButton1Down:connect(function()
+	print("Dupe Script | Made By: LinK")
+	workspace.__THINGS.__REMOTES.MAIN:FireServer("b", "bank deposit")
+	local function Bank(id)
+		local self = {}
+		function self:deposit(pets, gems)
+			local A_1 = 
+				{
+					[1] = id, 
+					[2] = 
+					{
+					}, 
+					[3] = gems
+				}
+			local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"]["bank deposit"]
+			Event:InvokeServer(A_1)
+		end
+		return self
+	end
+	--//
+	local bankid = "33c8b29d-7d98-469d-b8b9-3b1b96182e7f"--bank
+	for i=5, 500 do
+		Bank(bankid):deposit({}, 1)
+		print('Execute Success! | Deposited 1 GEMS')
+		task.wait(2)
+	end
+end)
